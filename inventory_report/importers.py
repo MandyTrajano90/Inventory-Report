@@ -15,11 +15,11 @@ class Importer(ABC):
 
 
 class JsonImporter(Importer):
-    def __init__(self, file_path: str) -> None:
-        super().__init__(file_path)
+    def __init__(self, path: str) -> None:
+        super().__init__(path)
 
     def import_data(self) -> List[Product]:
-        with open(self.file_path) as file:
+        with open(self.path) as file:
             data = json.load(file)
             products = []
             for product in data:
@@ -28,11 +28,11 @@ class JsonImporter(Importer):
 
 
 class CsvImporter(Importer):
-    def __init__(self, file_path: str) -> None:
-        super().__init__(file_path)
+    def __init__(self, path: str) -> None:
+        super().__init__(path)
 
     def import_data(self) -> List[Product]:
-        with open(self.file_path) as file:
+        with open(self.path) as file:
             data = DictReader(file)
             products = []
             for product in data:
