@@ -6,8 +6,8 @@ from inventory_report.product import Product
 
 
 class Importer(ABC):
-    def __init__(self, file_path: str) -> None:
-        self.file_path = file_path
+    def __init__(self, path: str) -> None:
+        self.path = path
 
     @abstractmethod
     def import_data(self) -> List[Product]:
